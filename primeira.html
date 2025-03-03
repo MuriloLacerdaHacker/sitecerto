@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #f4f4f4;
+        font-family: Arial, sans-serif;
+      }
+      input {
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px;
+        font-size: 18px;
+        background: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Digite o nome da namorada do Lacerda:</h2>
+    <input type="text" id="nameInput" placeholder="Digite o nome" />
+    <button onclick="checkName()">Entrar</button>
+    <script>
+      function checkName() {
+        let name = document.getElementById("nameInput").value.toLowerCase();
+        if (name === "mel" || name === "melissa" || name === "mel ") {
+          window.location.href = "index.html";
+        } else {
+          alert("Nome incorreto! Tente novamente.");
+        }
+      }
+    </script>
+  </body>
+</html>

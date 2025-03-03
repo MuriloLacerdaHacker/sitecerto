@@ -1,45 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algo Especial</title>
     <style>
       body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
+        font-family: "Arial", sans-serif;
+        background-color: #f7f7f7;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
         flex-direction: column;
-        background: #f4f4f4;
-        font-family: Arial, sans-serif;
       }
-      input {
-        padding: 10px;
-        font-size: 18px;
-        margin-bottom: 10px;
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 700px;
       }
-      button {
-        padding: 10px;
-        font-size: 18px;
-        background: blue;
+      .carrossel {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .carrossel img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ajuste para não cortar a imagem */
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      .carrossel img.active {
+        opacity: 1;
+      }
+      .carrossel .heart-frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.6;
+      }
+      .controle {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
         color: white;
+        font-size: 24px;
         border: none;
+        border-radius: 50%;
         cursor: pointer;
+        transform: translateY(-50%);
+      }
+      .controle.esquerda {
+        left: 10px;
+      }
+      .controle.direita {
+        right: 10px;
+      }
+      h1 {
+        color: #ff4081;
+        font-size: 32px;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 18px;
+        color: #333;
+        margin-top: 10px;
+        line-height: 1.6;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #777;
       }
     </style>
   </head>
   <body>
-    <h2>Digite o nome da namorada do Lacerda:</h2>
-    <input type="text" id="nameInput" placeholder="Digite o nome" />
-    <button onclick="checkName()">Entrar</button>
+    <div class="container">
+      <!-- Carrossel de Imagens -->
+      <div class="carrossel">
+        <div class="heart-frame"></div>
+        <img
+          src="WhatsApp Image 2025-03-03 at 01.14.02.jpeg"
+          alt="Imagem romântica 1"
+          class="active"
+        />
+        <img
+          src="WhatsApp Image 2025-03-03 at 01.44.07.jpeg"
+          alt="Imagem romântica 2"
+        />
+        <img
+          src="WhatsApp Image 2025-03-03 at 01.44.07 (1).jpeg"
+          alt="Imagem romântica 3"
+        />
+        <button class="controle esquerda" onclick="mudarImagem(-1)">❮</button>
+        <button class="controle direita" onclick="mudarImagem(1)">❯</button>
+      </div>
+
+      <h1>carta pra Mel</h1>
+      <p>
+        Desde que te conheci, você era só a amiga bonita da Malu, mas logo senti uma energia diferente em você. Nossa primeira conversa foi como se já nos conhecêssemos, e percebi que você não era qualquer uma. Nosso primeiro beijo, na festa da Duda, me confirmou tudo que eu pensava. Mesmo sendo diferentes em algumas coisas, quando estamos juntos, a energia é a mesma. Eu gosto de você não só pela aparência, mas pela conexão que a gente tem. Não sei bem o que estamos, mas sei que está legal. Vamos deixar rolar.
+
+
+
+      </p>
+    
+
+    <!-- Script para o carrossel -->
     <script>
-      function checkName() {
-        let name = document.getElementById("nameInput").value.toLowerCase();
-        if (name === "mel" || name === "melissa" || name === "mel ") {
-          window.location.href = "index.html";
-        } else {
-          alert("Nome incorreto! Tente novamente.");
-        }
+      let imagemAtual = 0;
+      const imagens = document.querySelectorAll(".carrossel img");
+
+      function mudarImagem(direcao) {
+        imagens[imagemAtual].classList.remove("active");
+        imagemAtual = (imagemAtual + direcao + imagens.length) % imagens.length;
+        imagens[imagemAtual].classList.add("active");
       }
     </script>
   </body>

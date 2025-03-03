@@ -18,7 +18,7 @@
       }
       .container {
         background-color: white;
-        padding: 30px;
+        padding: 10px; /* Reduzido padding para telas pequenas */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         width: 90%;
@@ -27,7 +27,7 @@
       .carrossel {
         position: relative;
         width: 100%;
-        height: 300px;
+        height: 200px;
         margin-bottom: 20px;
         display: flex;
         justify-content: center;
@@ -37,7 +37,7 @@
       .carrossel img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* Ajuste para não cortar a imagem */
+        object-fit: cover;
         opacity: 0;
         transition: opacity 0.5s ease;
       }
@@ -78,25 +78,39 @@
       }
       h1 {
         color: #ff4081;
-        font-size: 32px;
+        font-size: 28px;
         margin-top: 20px;
       }
       p {
-        font-size: 18px;
+        font-size: 16px;
         color: #333;
         margin-top: 10px;
         line-height: 1.6;
+        padding: 0 15px;
       }
       .footer {
         margin-top: 20px;
         font-size: 14px;
         color: #777;
       }
+      @media (max-width: 768px) {
+        .container {
+          width: 95%;
+        }
+        .carrossel {
+          height: 180px; /* Ajuste da altura do carrossel */
+        }
+        h1 {
+          font-size: 24px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- Carrossel de Imagens -->
       <div class="carrossel">
         <div class="heart-frame"></div>
         <img
@@ -116,16 +130,18 @@
         <button class="controle direita" onclick="mudarImagem(1)">❯</button>
       </div>
 
-      <h1>carta pra Mel</h1>
+      <h1>Carta para Mel</h1>
       <p>
-        Desde que te conheci, você era só a amiga bonita da Malu, mas logo senti uma energia diferente em você. Nossa primeira conversa foi como se já nos conhecêssemos, e percebi que você não era qualquer uma. Nosso primeiro beijo, na festa da Duda, me confirmou tudo que eu pensava. Mesmo sendo diferentes em algumas coisas, quando estamos juntos, a energia é a mesma. Eu gosto de você não só pela aparência, mas pela conexão que a gente tem. Não sei bem o que estamos, mas sei que está legal. Vamos deixar rolar.
-
-
-
+        Desde que te conheci, você era só a amiga bonita da Malu, mas logo senti
+        uma energia diferente em você. Nossa primeira conversa foi como se já
+        nos conhecêssemos, e percebi que você não era qualquer uma. Nosso
+        primeiro beijo, na festa da Duda, me confirmou tudo que eu pensava.
+        Mesmo sendo diferentes em algumas coisas, quando estamos juntos, a
+        energia é a mesma. Eu gosto de você não só pela aparência, mas pela
+        conexão que a gente tem. Não sei bem o que estamos, mas sei que está
+        legal. Vamos deixar rolar.
       </p>
-    
-
-    <!-- Script para o carrossel -->
+    </div>
     <script>
       let imagemAtual = 0;
       const imagens = document.querySelectorAll(".carrossel img");
@@ -138,3 +154,4 @@
     </script>
   </body>
 </html>
+>

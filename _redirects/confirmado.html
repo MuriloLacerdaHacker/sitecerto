@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
         margin: 0;
@@ -17,6 +18,8 @@
         padding: 10px;
         font-size: 18px;
         margin-bottom: 10px;
+        width: 80%; /* Responsivo para ocupar mais largura em dispositivos móveis */
+        max-width: 300px; /* Limita o tamanho máximo */
       }
       button {
         padding: 10px;
@@ -25,18 +28,29 @@
         color: white;
         border: none;
         cursor: pointer;
+        width: 80%;
+        max-width: 300px;
+      }
+      @media (max-width: 768px) {
+        h2 {
+          font-size: 20px; /* Ajuste do tamanho da fonte em telas menores */
+        }
+        input,
+        button {
+          width: 90%; /* Aumenta a largura para telas pequenas */
+        }
       }
     </style>
   </head>
   <body>
-    <h2>Digite o nome da namorada do Lacerda:</h2>
+    <h2>Digite o nome da pretendente do lacerda :</h2>
     <input type="text" id="nameInput" placeholder="Digite o nome" />
     <button onclick="checkName()">Entrar</button>
     <script>
       function checkName() {
         let name = document.getElementById("nameInput").value.toLowerCase();
         if (name === "mel" || name === "melissa" || name === "mel ") {
-          window.location.href = "index.html";
+          window.location.href = "primeira.html";
         } else {
           alert("Nome incorreto! Tente novamente.");
         }

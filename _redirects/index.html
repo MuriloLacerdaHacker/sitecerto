@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<a href="confirmado.html" style="text-decoration: none; color: blue">Sim</a>
-
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        margin: 0;
       }
       .box {
         text-decoration: none;
@@ -36,6 +36,19 @@
         border-radius: 5px;
         color: blue;
         font-weight: 600;
+      }
+      @media (max-width: 768px) {
+        .box {
+          width: 80%; /* Ajuste a largura para dispositivos menores */
+          height: auto;
+        }
+        .button-container {
+          width: 100%; /* Alinha os botões em dispositivos pequenos */
+        }
+        button {
+          font-size: 14px; /* Font menor para telas pequenas */
+          width: 60px;
+        }
       }
     </style>
   </head>
